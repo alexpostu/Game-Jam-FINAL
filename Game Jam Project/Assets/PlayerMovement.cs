@@ -9,6 +9,12 @@ public class PlayerMovement : MonoBehaviour
     public float carSpeed = 1000000;
     private float time = 10f;
 
+    void Start()
+    {
+        int indx = randomise();
+        transform.position = v[indx];
+    }
+
     void Update()
     {
         MovePlayer();
@@ -20,12 +26,19 @@ public class PlayerMovement : MonoBehaviour
         time -= Time.deltaTime;
         if ( time <= 0 )
         {
-            System.Random rnd = new System.Random();
-            int indx = rnd.Next(0, 3);
-
+            int indx = randomise();
             transform.position = v[indx];
+
             time = 10f;
         }
+    }
+
+    int randomise()
+    {
+        System.Random rnd = new System.Random();
+        int indx = rnd.Next(0, 3);
+
+        return indx;
     }
 
     void MovePlayer()
