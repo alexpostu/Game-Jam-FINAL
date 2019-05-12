@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public List<Vector3> v = new List<Vector3>();
     public float carSpeed = 1000000;
-    private float time = 10f;
+    private float time = 180f;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
             int indx = randomise();
             transform.position = v[indx];
 
-            time = 10f;
+            time = 180f;
         }
     }
 
@@ -59,8 +59,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position -= new Vector3(0, carSpeed * Time.deltaTime, 0);
         }
-
-
     }
 
     void OnCollisionEnter2D(Collision2D col)
