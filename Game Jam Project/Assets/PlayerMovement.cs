@@ -8,10 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public List<Vector3> v = new List<Vector3>();
     public float carSpeed = 1000000;
     private float time = 180f;
+    private int indx;
 
     void Start()
     {
-        int indx = randomise();
+        indx = 0;
         transform.position = v[indx];
     }
 
@@ -26,19 +27,17 @@ public class PlayerMovement : MonoBehaviour
         time -= Time.deltaTime;
         if ( time <= 0 )
         {
-            int indx = randomise();
-            transform.position = v[indx];
+            if ( indx < 3 )
+            {
+                indx++;
+            } else
+            {
+                indx = 0;
+            }
 
+            transform.position = v[indx];
             time = 180f;
         }
-    }
-
-    int randomise()
-    {
-        System.Random rnd = new System.Random();
-        int indx = rnd.Next(0, 3);
-
-        return indx;
     }
 
     void MovePlayer()
