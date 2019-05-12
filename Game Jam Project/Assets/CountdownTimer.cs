@@ -8,7 +8,7 @@ public class CountdownTimer : MonoBehaviour
     // Start is called before the first frame update
 
     public Text timerText;
-    private float time = 10f;
+    private float time = 180f;
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class CountdownTimer : MonoBehaviour
             if (time <= 0)
             {
                 timerText.text = "Time Left: 00:00";
-                time = 10f;
+                time = 180f;
             }
             else
             {
@@ -40,7 +40,7 @@ public class CountdownTimer : MonoBehaviour
 
         if (timerText != null)
         {
-            time = 10;
+            time = 180f;
             timerText.text = "Time Left: 00:10";
         }
     }
